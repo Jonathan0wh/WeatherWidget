@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render by default 1`] = `
+<View
+  style={
+    Object {
+      "height": 40,
+      "justifyContent": "center",
+    }
+  }
+>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "marginLeft": 10,
+      }
+    }
+  >
+    <Component
+      icon={
+        Object {
+          "icon": Array [
+            448,
+            512,
+            Array [],
+            "f0c9",
+            "M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z",
+          ],
+          "iconName": "bars",
+          "prefix": "fas",
+        }
+      }
+      size={18}
+    />
+  </TouchableOpacity>
+</View>
+`;

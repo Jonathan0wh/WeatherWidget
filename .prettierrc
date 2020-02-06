@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "bracketSpacing": true,
+
+  "overrides": [
+    {
+      "files": "*.java",
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}
