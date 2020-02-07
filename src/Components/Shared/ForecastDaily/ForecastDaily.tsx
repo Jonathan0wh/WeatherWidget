@@ -13,11 +13,11 @@ interface ForecastDailyProps {
 }
 
 const ForecastDaily = ({ index }: ForecastDailyProps) => {
-  const location = useSelector((state: RootState) => state.location);
+  const current = useSelector((state: RootState) => state.current);
   const celsius = useSelector((state: RootState) => state.unit.celsius);
 
-  const dayIndex = location
-    ? new Date(location.localtime.replace(' ', 'T')).getDay()
+  const dayIndex = current
+    ? new Date(current.ob_time.replace(' ', 'T')).getDay()
     : 0;
 
   return (
@@ -29,7 +29,7 @@ const ForecastDaily = ({ index }: ForecastDailyProps) => {
     >
       <Text style={styles.dateText}>
         {index
-          ? location &&
+          ? current &&
             STRINGS.days[
               dayIndex + index >= 7 ? dayIndex + index - 7 : dayIndex + index
             ]
