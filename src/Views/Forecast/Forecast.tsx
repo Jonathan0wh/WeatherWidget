@@ -49,9 +49,9 @@ const Forecast = () => {
 const styles = StyleSheet.create({
   forecastContainer: {
     borderTopWidth: 0.5,
-    borderTopColor: COLORS.white,
+    borderTopColor: COLORS.infoTextGrey,
     borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.white
+    borderBottomColor: COLORS.infoTextGrey
   }
 });
 
