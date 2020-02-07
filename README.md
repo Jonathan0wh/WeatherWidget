@@ -2,9 +2,7 @@
 
 ## Screenshots
 
-![Screenshot 1](<./src/docs/Screen Shot 2020-02-07 at 2.19.31 pm.png>)
-![Screenshot 2](<./src/docs/Screen Shot 2020-02-07 at 2.19.56 pm.png>)
-![Screenshot 3](<./src/docs/Screen Shot 2020-02-07 at 2.25.28 pm.png>)
+| ![Screenshot 1](<./src/docs/Screen Shot 2020-02-07 at 2.19.31 pm.png>) | ![Screenshot 2](<./src/docs/Screen Shot 2020-02-07 at 2.19.56 pm.png>) | ![Screenshot 3](<./src/docs/Screen Shot 2020-02-07 at 2.25.28 pm.png>) |
 
 ## Commands
 
