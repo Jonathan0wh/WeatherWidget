@@ -13,11 +13,11 @@ export function nth(d: number) {
 }
 
 export function getFahrenheitFromCelsius(celsius: number) {
-  return celsius * (9 / 5) + 32;
+  return parseFloat((celsius * (9 / 5) + 32).toFixed(1));
 }
 
 export function getCelsiusFromFahrenheit(fahrenheit: number) {
-  return (fahrenheit - 32) * (5 / 9);
+  return parseFloat(((fahrenheit - 32) * (5 / 9)).toFixed(1));
 }
 
 export function getWeatherIconUri(iconCode: string) {
