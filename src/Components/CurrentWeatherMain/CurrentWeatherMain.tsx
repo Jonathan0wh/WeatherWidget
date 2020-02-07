@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     height: 80
   },
   temperatureText: {
-    paddingTop: 8
+    paddingTop: 16
   },
   temperatureUnit: {
-    paddingTop: 18
+    paddingTop: 22
   }
 });
 
