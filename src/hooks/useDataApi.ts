@@ -62,6 +62,7 @@ const dataFetchReducer = (state: IState, action: FetchActionTypes) => {
 export const useDataApi = (
   endpoint?: string,
   params?: object,
+  dependency?: any,
   initialUrl: string = Config.API_URL,
   initialData?: ApiPayload
 ) => {
@@ -91,8 +92,9 @@ export const useDataApi = (
         dispatch({ type: FETCH_FAILURE });
       }
     };
-    fetchData();
-  }, [url]);
+
+    dependency && fetchData();
+  }, [url, dependency]);
 
   return [state, setUrl];
 };

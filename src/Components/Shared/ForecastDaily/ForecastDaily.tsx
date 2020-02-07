@@ -6,13 +6,15 @@ import { COLORS } from 'styles/colors';
 import { A11Y_LABELS } from 'constants/a11y';
 import { STRINGS } from 'constants/strings';
 import { RootState } from 'store/reducer';
-import { getFahrenheitFromCelsius } from 'utils';
+import { getFahrenheitFromCelsius, getWeatherIconUri } from 'utils';
+import { CurrentState } from 'Views/CurrentWeather/types';
 
 interface ForecastDailyProps {
   index: number;
+  dailyForecast: CurrentState;
 }
 
-const ForecastDaily = ({ index }: ForecastDailyProps) => {
+const ForecastDaily = ({ index, dailyForecast }: ForecastDailyProps) => {
   const current = useSelector((state: RootState) => state.current);
   const celsius = useSelector((state: RootState) => state.unit.celsius);
 
@@ -37,8 +39,7 @@ const ForecastDaily = ({ index }: ForecastDailyProps) => {
       </Text>
       <Image
         source={{
-          uri:
-            'https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png'
+          uri: getWeatherIconUri(dailyForecast.weather.icon)
         }}
         style={styles.weatherIcon}
         accessible
@@ -46,9 +47,12 @@ const ForecastDaily = ({ index }: ForecastDailyProps) => {
       />
       <View style={styles.rowContainer}>
         <Text style={styles.highTemperatureText}>
-          {celsius ? 68 : getFahrenheitFromCelsius(68)}°
+          {celsius
+            ? dailyForecast.temp
+            : getFahrenheitFromCelsius(dailyForecast.temp)}
+          °
         </Text>
-        <Text style={styles.infoText}> 36°</Text>
+        {/* <Text style={styles.infoText}> 36°</Text> */}
       </View>
     </View>
   );
@@ -59,7 +63,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   rowContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   dateText: {
     fontWeight: 'bold'

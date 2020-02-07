@@ -1,11 +1,32 @@
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ForecastDaily from 'Components/Shared/ForecastDaily';
 import { COLORS } from 'styles/colors';
+import { STRINGS } from 'constants/strings';
+import { RootState } from 'store/reducer';
+import { useDataApi } from 'hooks/useDataApi';
+import { saveForecast } from './actions';
+import { CurrentState } from 'Views/CurrentWeather/types';
 
 const Forecast = () => {
-  const mockData = [{}, {}, {}, {}, {}, {}, {}];
+  let forecastArray: Array<CurrentState> = [];
+
+  const current = useSelector((state: RootState) => state.current);
+  const [{ data, isLoading, isError }] = useDataApi(
+    STRINGS.apiEndpointForecast,
+    {
+      lat: current?.lat,
+      lon: current?.lon
+    },
+    current
+  );
+  const dispatch = useDispatch();
+  if (!isLoading && !isError && data) {
+    forecastArray = data.data.slice(0, 7);
+    dispatch(saveForecast(forecastArray));
+  }
 
   return (
     <ScrollView
@@ -14,8 +35,12 @@ const Forecast = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      {mockData.map((value, index) => (
-        <ForecastDaily key={index} index={index} />
+      {forecastArray.map((dailyForecast, index) => (
+        <ForecastDaily
+          key={index}
+          index={index}
+          dailyForecast={dailyForecast}
+        />
       ))}
     </ScrollView>
   );

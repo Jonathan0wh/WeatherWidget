@@ -13,6 +13,7 @@ const CurrentWeather = () => {
   const locationParam = useLocation();
   const [{ data, isLoading, isError }] = useDataApi(
     STRINGS.apiEndpointCurrent,
+    locationParam,
     locationParam
   );
   const dispatch = useDispatch();
