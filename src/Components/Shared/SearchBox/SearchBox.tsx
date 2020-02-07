@@ -7,7 +7,6 @@ import axios from 'axios';
 import { COLORS } from 'styles/colors';
 import { STRINGS } from 'constants/strings';
 import { saveCurrent } from 'Views/CurrentWeather';
-import { saveLocation } from 'Views/Weather';
 
 const SearchBox = () => {
   const [value, setValue] = useState('');
@@ -20,19 +19,11 @@ const SearchBox = () => {
       value={value}
       onChangeText={text => setValue(text)}
       onSubmitEditing={() => {
-        const url =
-          Config.API_URL +
-          '/' +
-          STRINGS.apiEndpointCurrent +
-          '?access_key=' +
-          Config.ACCESS_KEY +
-          '&query=' +
-          value;
+        const url = `${Config.API_URL}/${STRINGS.apiEndpointCurrent}?key=${Config.ACCESS_KEY}&city=${value}`;
         axios
           .get(url)
           .then(response => {
-            dispatch(saveLocation(response.data.location));
-            dispatch(saveCurrent(response.data.current));
+            dispatch(saveCurrent(response.data.data[0]));
           })
           .catch(error => __DEV__ && console.log(error));
       }}

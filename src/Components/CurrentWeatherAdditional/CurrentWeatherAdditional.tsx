@@ -10,62 +10,64 @@ const CurrentWeatherAdditional = () => {
   const current = useSelector((state: RootState) => state.current);
 
   return (
-    <View>
-      <View style={styles.rowContainer}>
-        <Text
-          style={styles.titleText}
-          accessible
-          accessibilityLabel={A11Y_LABELS.currentPrecipitation}
-          accessibilityRole="text"
-        >
-          Precipitation:{' '}
-        </Text>
-        <Text
-          style={styles.dataText}
-          accessible
-          accessibilityLabel={current?.precip + '%'}
-          accessibilityRole="text"
-        >
-          {current?.precip}%
-        </Text>
+    current && (
+      <View>
+        <View style={styles.rowContainer}>
+          <Text
+            style={styles.titleText}
+            accessible
+            accessibilityLabel={A11Y_LABELS.currentPrecipitation}
+            accessibilityRole="text"
+          >
+            Precipitation:{' '}
+          </Text>
+          <Text
+            style={styles.dataText}
+            accessible
+            accessibilityLabel={current.precip + 'mm/hr'}
+            accessibilityRole="text"
+          >
+            {current.precip} mm/hr
+          </Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text
+            style={styles.titleText}
+            accessible
+            accessibilityLabel={A11Y_LABELS.currentHumidity}
+            accessibilityRole="text"
+          >
+            Humidity:{' '}
+          </Text>
+          <Text
+            style={styles.dataText}
+            accessible
+            accessibilityLabel={current.rh + '%'}
+            accessibilityRole="text"
+          >
+            {current.rh}%
+          </Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text
+            style={styles.titleText}
+            accessible
+            accessibilityLabel={A11Y_LABELS.currenWind}
+            accessibilityRole="text"
+          >
+            Wind:{' '}
+          </Text>
+          <Text
+            style={styles.dataText}
+            accessible
+            accessibilityLabel={current.wind_spd + 'm/s' + current.wind_cdir}
+            accessibilityRole="text"
+          >
+            {current.wind_spd} m/s {current.wind_cdir}
+          </Text>
+        </View>
       </View>
-      <View style={styles.rowContainer}>
-        <Text
-          style={styles.titleText}
-          accessible
-          accessibilityLabel={A11Y_LABELS.currentHumidity}
-          accessibilityRole="text"
-        >
-          Humidity:{' '}
-        </Text>
-        <Text
-          style={styles.dataText}
-          accessible
-          accessibilityLabel={current?.humidity + '%'}
-          accessibilityRole="text"
-        >
-          {current?.humidity}%
-        </Text>
-      </View>
-      <View style={styles.rowContainer}>
-        <Text
-          style={styles.titleText}
-          accessible
-          accessibilityLabel={A11Y_LABELS.currenWind}
-          accessibilityRole="text"
-        >
-          Wind:{' '}
-        </Text>
-        <Text
-          style={styles.dataText}
-          accessible
-          accessibilityLabel={current?.wind_speed + 'kph' + current?.wind_dir}
-          accessibilityRole="text"
-        >
-          {current?.wind_speed} kph {current?.wind_dir}
-        </Text>
-      </View>
-    </View>
+    )
   );
 };
 

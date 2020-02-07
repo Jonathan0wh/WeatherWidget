@@ -6,7 +6,8 @@ import { getLocationPermission } from 'utils/permission';
 
 export const useLocation = () => {
   const [locationParam, setLocationParam] = useState({
-    query: Config.DEFAULT_LOCATION
+    lat: Config.DEFAULT_LAT,
+    lon: Config.DEFAULT_LON
   });
 
   useEffect(() => {
@@ -16,8 +17,8 @@ export const useLocation = () => {
           Geolocation.getCurrentPosition(
             position => {
               setLocationParam({
-                query:
-                  position.coords.latitude + ',' + position.coords.longitude
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
               });
             },
             error => {

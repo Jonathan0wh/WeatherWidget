@@ -1,6 +1,6 @@
 export const STRINGS = {
   apiEndpointCurrent: 'current',
-  apiEndpointForecast: 'forecast',
+  apiEndpointForecast: 'forecast/daily',
 
   days: [
     'Sunday',
@@ -26,5 +26,5 @@ export const STRINGS = {
     'December'
   ],
 
-  searchBoxPlaceHolder: 'Enter a city name'
+  searchBoxPlaceHolder: 'Enter a city and/or country name'
 };

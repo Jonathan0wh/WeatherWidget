@@ -6,78 +6,74 @@ import { COLORS } from 'styles/colors';
 import { A11Y_LABELS } from 'constants/a11y';
 import { RootState } from 'store/reducer';
 import { STRINGS } from 'constants/strings';
-import { nth, getFahrenheitFromCelsius } from 'utils';
+import { nth, getFahrenheitFromCelsius, getWeatherIconUri } from 'utils';
 
 const CurrentWeatherMain = () => {
-  const location = useSelector((state: RootState) => state.location);
   const current = useSelector((state: RootState) => state.current);
   const celsius = useSelector((state: RootState) => state.unit.celsius);
 
   return (
-    <View style={styles.mainWeatherContainer}>
-      <Text
-        style={styles.titleText}
-        accessible
-        accessibilityLabel={A11Y_LABELS.currentCity + location?.name}
-        accessibilityRole="text"
-      >
-        {location?.name}
-      </Text>
-      <Text
-        style={styles.infoText}
-        accessible
-        accessibilityLabel={A11Y_LABELS.currentDate + location?.localtime}
-        accessibilityRole="text"
-      >
-        {location &&
-          STRINGS.days[
-            new Date(location.localtime.replace(' ', 'T')).getDay()
-          ] + ', '}
-        {location &&
-          STRINGS.days[
-            new Date(location.localtime.replace(' ', 'T')).getMonth()
-          ]}{' '}
-        {location && new Date(location.localtime.replace(' ', 'T')).getDay()}
-        {location &&
-          nth(new Date(location.localtime.replace(' ', 'T')).getDay())}
-      </Text>
-      <Text
-        style={styles.infoText}
-        accessible
-        accessibilityLabel={
-          A11Y_LABELS.currentWeather + current?.weather_descriptions
-        }
-        accessibilityRole="text"
-      >
-        {current?.weather_descriptions}
-      </Text>
-      <View style={styles.visualWeatherContainer}>
-        <Image
-          source={{
-            uri: current?.weather_icons[0]
-          }}
-          style={styles.weatherIcon}
-        />
+    current && (
+      <View style={styles.mainWeatherContainer}>
         <Text
-          style={[styles.titleText, styles.temperatureText]}
+          style={styles.titleText}
+          accessible
+          accessibilityLabel={A11Y_LABELS.currentCity + current.city_name}
+          accessibilityRole="text"
+        >
+          {current.city_name}
+        </Text>
+        <Text
+          style={styles.infoText}
+          accessible
+          accessibilityLabel={A11Y_LABELS.currentDate + current.ob_time}
+          accessibilityRole="text"
+        >
+          {STRINGS.days[new Date(current.ob_time.replace(' ', 'T')).getDay()] +
+            ', '}
+          {
+            STRINGS.months[
+              new Date(current.ob_time.replace(' ', 'T')).getMonth()
+            ]
+          }{' '}
+          {new Date(current.ob_time.replace(' ', 'T')).getDay()}
+          {nth(new Date(current.ob_time.replace(' ', 'T')).getDay())}
+        </Text>
+        <Text
+          style={styles.infoText}
           accessible
           accessibilityLabel={
-            A11Y_LABELS.currentTemperature + celsius
-              ? current?.temperature + 'Celsius'
-              : getFahrenheitFromCelsius(current?.temperature || 0) +
-                'Farenheight'
+            A11Y_LABELS.currentWeather + current.weather.description
           }
           accessibilityRole="text"
         >
-          {celsius
-            ? current?.temperature
-            : getFahrenheitFromCelsius(current?.temperature || 0)}
+          {current.weather.description}
         </Text>
-        <Text style={[styles.infoText, styles.temperatureUnit]}>
-          °{celsius ? 'C' : 'F'}
-        </Text>
+        <View style={styles.visualWeatherContainer}>
+          <Image
+            source={{
+              uri: getWeatherIconUri(current.weather.icon)
+            }}
+            style={styles.weatherIcon}
+          />
+          <Text
+            style={[styles.titleText, styles.temperatureText]}
+            accessible
+            accessibilityLabel={
+              A11Y_LABELS.currentTemperature + celsius
+                ? current.temp + 'Celsius'
+                : getFahrenheitFromCelsius(current.temp) + 'Farenheight'
+            }
+            accessibilityRole="text"
+          >
+            {celsius ? current.temp : getFahrenheitFromCelsius(current.temp)}
+          </Text>
+          <Text style={[styles.infoText, styles.temperatureUnit]}>
+            °{celsius ? 'C' : 'F'}
+          </Text>
+        </View>
       </View>
-    </View>
+    )
   );
 };
 

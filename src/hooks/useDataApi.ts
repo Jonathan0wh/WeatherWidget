@@ -78,7 +78,7 @@ export const useDataApi = (
       paramString += key + '=' + value + '&';
     }
   } else paramString = '';
-  const url = `${baseUrl}/${endpoint}?access_key=${Config.ACCESS_KEY}&${paramString}`;
+  const url = `${baseUrl}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,6 +87,7 @@ export const useDataApi = (
         const result = await axios(url);
         dispatch({ type: FETCH_SUCCESS, payload: result.data });
       } catch (error) {
+        __DEV__ && console.log(error);
         dispatch({ type: FETCH_FAILURE });
       }
     };

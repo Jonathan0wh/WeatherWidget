@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { locationReducer } from 'Views/Weather';
-import { currentReducer } from 'Views/CurrentWeather';
 import { unitReducer } from 'Components/Shared/UnitSwitcher';
+import { currentReducer } from 'Views/CurrentWeather';
 
 export const rootReducer = combineReducers({
-  location: locationReducer,
-  current: currentReducer,
-  unit: unitReducer
+  unit: unitReducer,
+  current: currentReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

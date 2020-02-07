@@ -19,3 +19,7 @@ export function getFahrenheitFromCelsius(celsius: number) {
 export function getCelsiusFromFahrenheit(fahrenheit: number) {
   return (fahrenheit - 32) * (5 / 9);
 }
+
+export function getWeatherIconUri(iconCode: string) {
+  return `https://www.weatherbit.io/static/img/icons/${iconCode}.png`;
+}
