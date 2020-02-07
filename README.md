@@ -18,14 +18,12 @@
 
 ## Implemented Functionality
 
-- [x] Ask for geolocation pemission, detect the geolocation of the user device, and show the current weather.
+- [x] Ask for geolocation pemission, detect the geolocation of the user device, and show the current weather and forecast.
 
-  > the 7-day weather forecast part is using local mock data, because it would cost \$49.99 to buy their 7-day forecast API access for live data.
-
-  > But the current weather is using the live data from API, and components/redux files/test cases for both the current weather and the 7-day forecast are the same. Therefore it would already be enough to show my common design and development patterns and usage of components/redux/hooks/tests.
+  > This project uses [Weatherbit](https://www.weatherbit.io/) API as the data source. Unfortunately, [Weatherbit](https://www.weatherbit.io/) does not provide pollen/pollen count information and highest/lowerest temperature for 7-day forecast
 
 - [x] Accessible for screen readers
-- [x] Pulls the location weather from an API [WeatherStack](https://weatherstack.com/)r for a list of public weather APIs that you could use)
+- [x] Pulls the location weather from an API [Weatherbit](https://www.weatherbit.io/) for a list of public weather APIs that you could use)
 - [x] Allows the user to switch between Imperial/Metric units
 - [x] Allows the user to enter in a location name to look up
 
