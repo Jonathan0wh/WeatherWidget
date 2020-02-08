@@ -4,7 +4,7 @@
 
 | Default                                                            | Drawer navigation with location input and Celsius/Farenheit switcher | Farenheit mode                                                     |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| ![Screenshot 1](<./docs/Screen Shot 2020-02-07 at 2.19.31 pm.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-07 at 2.19.56 pm.png>)   | ![Screenshot 3](<./docs/Screen Shot 2020-02-07 at 2.25.28 pm.png>) |
+| ![Screenshot 1](<./docs/Screen Shot 2020-02-09 at 4.11.09 am.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-07 at 2.19.56 pm.png>)   | ![Screenshot 3](<./docs/Screen Shot 2020-02-09 at 4.11.57 am.png>) |
 
 ## Commands
 
@@ -26,7 +26,7 @@
 
 - [x] Ask for geolocation pemission, detect the geolocation of the user device, and show the current weather and forecast.
 
-  > This project uses [Weatherbit](https://www.weatherbit.io/) API as the data source. Unfortunately, [Weatherbit](https://www.weatherbit.io/) does not provide pollen/pollen count information and highest/lowerest temperature for 7-day forecast
+  > This project uses [Weatherbit](https://www.weatherbit.io/) API as the data source. Unfortunately, [Weatherbit](https://www.weatherbit.io/) does not provide pollen/pollen count information.
 
 - [x] Accessible for screen readers
 - [x] Pulls the location weather from an API [Weatherbit](https://www.weatherbit.io/) for a list of public weather APIs that you could use)
@@ -76,5 +76,5 @@ The following Weather API are from [Github: public-apis](https://github.com/publ
 | [OpenUV](https://www.openuv.io)                                        | Real-time UV Index Forecast. It is for UV information, no weather info.                                                                                                                                                                      | `apiKey` | Yes   | Unknown |
 | [OpenWeatherMap](http://openweathermap.org/api)                        | Weather. A popular choice. I used it a lot in the past. But its free account only provides 5 days/3 hour forecast API. To use 16 days/daily forecast API, I will need to buy their Startup plan (\$40)                                       | `apiKey` | No    | Unknown |
 | [Storm Glass](https://stormglass.io/)                                  | Global marine weather from multiple sources. No forecast. And its free account only allows 50 calls per day                                                                                                                                  | `apiKey` | Yes   | Yes     |
-| [Weatherbit](https://www.weatherbit.io/api)                            | Weather. It was used in this project. They have 16-day forecast for their free plan. But they do not have highest/lowest temperature for their daily forecast.                                                                               | `apiKey` | Yes   | Unknown |
+| [Weatherbit](https://www.weatherbit.io/api)                            | Weather. It was used in this project. They have 16-day forecast for their free plan.                                                                                                                                                         | `apiKey` | Yes   | Unknown |
 | [Yahoo! Weather](https://developer.yahoo.com/weather/)                 | Weather. It was already retired in Feb 2019                                                                                                                                                                                                  | `apiKey` | Yes   | Unknown |

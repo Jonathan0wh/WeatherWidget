@@ -7,11 +7,11 @@ import { A11Y_LABELS } from 'constants/a11y';
 import { STRINGS } from 'constants/strings';
 import { RootState } from 'store/reducer';
 import { getFahrenheitFromCelsius, getWeatherIconUri } from 'utils';
-import { CurrentState } from 'Views/CurrentWeather/types';
+import { DailyForecastState } from 'Views/Forecast/types';
 
 interface ForecastDailyProps {
   index: number;
-  dailyForecast: CurrentState;
+  dailyForecast: DailyForecastState;
 }
 
 const ForecastDaily = ({ index, dailyForecast }: ForecastDailyProps) => {
@@ -48,11 +48,17 @@ const ForecastDaily = ({ index, dailyForecast }: ForecastDailyProps) => {
       <View style={styles.rowContainer}>
         <Text style={styles.highTemperatureText}>
           {celsius
-            ? dailyForecast.temp
-            : getFahrenheitFromCelsius(dailyForecast.temp)}
+            ? dailyForecast.max_temp
+            : getFahrenheitFromCelsius(dailyForecast.max_temp)}
           °
         </Text>
-        {/* <Text style={styles.infoText}> 36°</Text> */}
+        <Text style={styles.infoText}>
+          {' '}
+          {celsius
+            ? dailyForecast.min_temp
+            : getFahrenheitFromCelsius(dailyForecast.min_temp)}
+          °
+        </Text>
       </View>
     </View>
   );

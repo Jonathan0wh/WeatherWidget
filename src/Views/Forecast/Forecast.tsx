@@ -1,16 +1,17 @@
 import React from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ForecastDaily from 'Components/Shared/ForecastDaily';
 import { COLORS } from 'styles/colors';
 import { STRINGS } from 'constants/strings';
 import { RootState } from 'store/reducer';
 import { useApi } from 'hooks/useApi';
-import { CurrentState } from 'Views/CurrentWeather/types';
+import { ForecastState } from './types';
+import { saveForecast } from './actions';
 
 const Forecast = () => {
-  let forecastArray: Array<CurrentState> = [];
+  let forecast: ForecastState = [];
 
   const current = useSelector((state: RootState) => state.current);
   const [{ data, isLoading, isError }] = useApi(
@@ -21,16 +22,20 @@ const Forecast = () => {
       lon: current?.lon
     }
   );
-  if (!isLoading && !isError && data) forecastArray = data.data.slice(0, 7);
+  const dispatch = useDispatch();
+  if (!isLoading && !isError && data) {
+    forecast = data.data.slice(0, 7);
+    dispatch(saveForecast(forecast));
+  }
 
-  return forecastArray.length ? (
+  return forecast.length ? (
     <ScrollView
       contentContainerStyle={styles.forecastContainer}
       centerContent
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      {forecastArray.map((dailyForecast, index) => (
+      {forecast.map((dailyForecast, index) => (
         <ForecastDaily
           key={index}
           index={index}
