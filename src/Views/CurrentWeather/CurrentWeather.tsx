@@ -12,8 +12,10 @@ import { saveCurrent } from 'Views/CurrentWeather/actions';
 const CurrentWeather = () => {
   const locationParam = useLocation();
   const [{ data, isLoading, isError }] = useApi(
+    undefined,
     STRINGS.apiEndpointCurrent,
-    locationParam
+    locationParam,
+    !!locationParam
   );
   const dispatch = useDispatch();
   if (!isLoading && !isError && data) {

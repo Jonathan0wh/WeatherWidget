@@ -37,6 +37,7 @@
 
 - react-navigation for the drawer
 - redux for global state management
+- redux-persist as local store caching
 - Components organised by functionality groups in align with data fragment in redux store
 - different kinds of React hooks are widely used. All functional component, no class component
 - consistent index.ts import and export: default import/export for Views/Components, named import/export for variables/redux related

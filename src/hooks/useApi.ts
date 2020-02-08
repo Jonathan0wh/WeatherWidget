@@ -60,16 +60,15 @@ const dataFetchReducer = (state: IState, action: FetchActionTypes) => {
 };
 
 export const useApi = (
+  baseUrl: string = Config.API_URL,
   endpoint?: string,
   params?: object,
-  initialUrl: string = Config.API_URL,
-  initialData?: ApiPayload
+  runFetch: boolean = true
 ) => {
-  const [baseUrl, setUrl] = useState(initialUrl);
+  const [base, setUrl] = useState(baseUrl);
   const [state, dispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
-    isError: false,
-    data: initialData
+    isError: false
   });
 
   let paramString = '';
@@ -78,11 +77,11 @@ export const useApi = (
       paramString += key + '=' + value + '&';
     }
   } else paramString = '';
-  const url = `${baseUrl}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
+  const url = `${base}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
 
   useEffect(() => {
-    console.log(url);
     const fetchData = async () => {
+      console.log(url); // TODO: delete it
       dispatch({ type: FETCH_INIT });
       try {
         const result = await axios(url);
@@ -93,8 +92,8 @@ export const useApi = (
       }
     };
 
-    fetchData();
-  }, [url]);
+    runFetch && fetchData();
+  }, [url, runFetch]);
 
   return [state, setUrl];
 };
