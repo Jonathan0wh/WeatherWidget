@@ -10,10 +10,11 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { store } from 'store';
+import { store, persistor } from 'store';
 import WeatherView from 'Views/Weather';
 import DrawerView from 'Views/Drawer';
 
@@ -24,14 +25,16 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Drawer.Navigator
-          initialRouteName="Home"
-          drawerContent={() => <DrawerView />}
-        >
-          <Drawer.Screen name="Home" component={WeatherView} />
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Drawer.Navigator
+            initialRouteName="Home"
+            drawerContent={() => <DrawerView />}
+          >
+            <Drawer.Screen name="Home" component={WeatherView} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 };

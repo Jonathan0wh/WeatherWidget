@@ -59,10 +59,9 @@ const dataFetchReducer = (state: IState, action: FetchActionTypes) => {
   }
 };
 
-export const useDataApi = (
+export const useApi = (
   endpoint?: string,
   params?: object,
-  dependency?: any,
   initialUrl: string = Config.API_URL,
   initialData?: ApiPayload
 ) => {
@@ -82,6 +81,7 @@ export const useDataApi = (
   const url = `${baseUrl}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
 
   useEffect(() => {
+    console.log(url);
     const fetchData = async () => {
       dispatch({ type: FETCH_INIT });
       try {
@@ -93,8 +93,8 @@ export const useDataApi = (
       }
     };
 
-    dependency && fetchData();
-  }, [url, dependency]);
+    fetchData();
+  }, [url]);
 
   return [state, setUrl];
 };

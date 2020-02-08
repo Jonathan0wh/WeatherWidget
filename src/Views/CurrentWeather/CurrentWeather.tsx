@@ -5,15 +5,14 @@ import { useDispatch } from 'react-redux';
 import CurrentWeatherMain from 'Components/CurrentWeatherMain';
 import CurrentWeatherAdditional from 'Components/CurrentWeatherAdditional';
 import { useLocation } from 'hooks/useLocation';
-import { useDataApi } from 'hooks/useDataApi';
+import { useApi } from 'hooks/useApi';
 import { STRINGS } from 'constants/strings';
 import { saveCurrent } from 'Views/CurrentWeather/actions';
 
 const CurrentWeather = () => {
   const locationParam = useLocation();
-  const [{ data, isLoading, isError }] = useDataApi(
+  const [{ data, isLoading, isError }] = useApi(
     STRINGS.apiEndpointCurrent,
-    locationParam,
     locationParam
   );
   const dispatch = useDispatch();
