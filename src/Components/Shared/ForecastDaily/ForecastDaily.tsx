@@ -18,9 +18,7 @@ const ForecastDaily = ({ index, dailyForecast }: ForecastDailyProps) => {
   const current = useSelector((state: RootState) => state.current);
   const celsius = useSelector((state: RootState) => state.unit.celsius);
 
-  const dayIndex = current
-    ? new Date(current.ob_time.replace(' ', 'T')).getDay()
-    : 0;
+  const dayIndex = current ? new Date().getDay() : 0;
 
   return (
     <View

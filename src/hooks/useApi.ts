@@ -81,7 +81,6 @@ export const useApi = (
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(url); // TODO: delete it
       dispatch({ type: FETCH_INIT });
       try {
         const result = await axios(url);

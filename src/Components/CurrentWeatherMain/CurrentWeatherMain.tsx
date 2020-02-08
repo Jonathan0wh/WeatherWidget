@@ -29,15 +29,9 @@ const CurrentWeatherMain = () => {
           accessibilityLabel={A11Y_LABELS.currentDate + current.ob_time}
           accessibilityRole="text"
         >
-          {STRINGS.days[new Date(current.ob_time.replace(' ', 'T')).getDay()] +
-            ', '}
-          {
-            STRINGS.months[
-              new Date(current.ob_time.replace(' ', 'T')).getMonth()
-            ]
-          }{' '}
-          {new Date(current.ob_time.replace(' ', 'T')).getDay()}
-          {nth(new Date(current.ob_time.replace(' ', 'T')).getDay())}
+          {STRINGS.days[new Date().getDay()] + ', '}
+          {STRINGS.months[new Date().getMonth()]} {new Date().getDate()}
+          {nth(new Date().getDate())}
         </Text>
         <Text
           style={styles.infoText}
