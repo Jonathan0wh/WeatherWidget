@@ -10,5 +10,18 @@ const mockStore = configureMockStore([thunk]);
 
 describe('<Weather />', () => {
   it('should render by default', () => {
+    const store = mockStore({
+      location: null,
+      current: null,
+      unit: {
+        celsius: true
+      }
+    });
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Weather />
+      </Provider>
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

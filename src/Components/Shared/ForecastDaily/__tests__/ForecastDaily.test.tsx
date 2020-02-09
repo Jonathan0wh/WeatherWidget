@@ -7,6 +7,8 @@ import thunk from 'redux-thunk';
 import ForecastDaily from '../ForecastDaily';
 
 const mockStore = configureMockStore([thunk]);
+const mockResponseForecast = require('./response.json');
+const mockResponseDailyForecast = mockResponseForecast.data[0];
 
 describe('<ForecastDaily />', () => {
   it('should render by default', () => {
@@ -19,7 +21,7 @@ describe('<ForecastDaily />', () => {
     });
     const wrapper = shallow(
       <Provider store={store}>
-        <ForecastDaily index={0} />
+        <ForecastDaily index={0} dailyForecast={mockResponseDailyForecast} />
       </Provider>
     );
     expect(wrapper).toMatchSnapshot();
@@ -35,7 +37,7 @@ describe('<ForecastDaily />', () => {
     });
     const wrapper = shallow(
       <Provider store={store}>
-        <ForecastDaily index={0} />
+        <ForecastDaily index={0} dailyForecast={mockResponseDailyForecast} />
       </Provider>
     );
     expect(wrapper).toMatchSnapshot();

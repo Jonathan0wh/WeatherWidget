@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "rh": 94,
+      "pod": "n",
+      "lon": 151.21,
+      "pres": 1001.7,
+      "timezone": "Australia/Sydney",
+      "ob_time": "2020-02-09 12:10",
+      "country_code": "AU",
+      "clouds": 100,
+      "ts": 1581250200,
+      "solar_rad": 0,
+      "state_code": "02",
+      "city_name": "Sydney",
+      "wind_spd": 4.02,
+      "last_ob_time": "2020-02-09T12:10:00",
+      "wind_cdir_full": "northeast",
+      "wind_cdir": "NE",
+      "slp": 1010.1,
+      "vis": 5,
+      "h_angle": -90,
+      "sunset": "08:53",
+      "dni": 0,
+      "dewpt": 19.7,
+      "snow": 0,
+      "uv": 0,
+      "precip": 0,
+      "wind_dir": 45,
+      "sunrise": "19:24",
+      "ghi": 0,
+      "dhi": 0,
+      "aqi": 56,
+      "lat": -33.87,
+      "weather": {
+        "icon": "c04n",
+        "code": "804",
+        "description": "Overcast clouds"
+      },
+      "datetime": "2020-02-09:12",
+      "temp": 20.6,
+      "station": "E8081",
+      "elev_angle": -32.45,
+      "app_temp": 21.2
+    }
+  ],
+  "count": 1
+}

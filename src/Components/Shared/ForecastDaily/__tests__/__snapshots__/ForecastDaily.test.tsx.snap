@@ -33,6 +33,51 @@ exports[`<ForecastDaily /> should render by default 1`] = `
   }
 >
   <ForecastDaily
+    dailyForecast={
+      Object {
+        "app_max_temp": 22.7,
+        "app_min_temp": 20.7,
+        "clouds": 100,
+        "clouds_hi": 100,
+        "clouds_low": 99,
+        "clouds_mid": 100,
+        "datetime": "2020-02-09",
+        "dewpt": 20.1,
+        "high_temp": 22.7,
+        "low_temp": 21.1,
+        "max_dhi": null,
+        "max_temp": 22.2,
+        "min_temp": 20.1,
+        "moon_phase": 0.994843,
+        "moonrise_ts": 1581239723,
+        "moonset_ts": 1581192062,
+        "ozone": 265.339,
+        "pop": 95,
+        "precip": 112.562,
+        "pres": 1001.25,
+        "rh": 93,
+        "slp": 1008.84,
+        "snow": 0,
+        "snow_depth": 0,
+        "sunrise_ts": 1581189984,
+        "sunset_ts": 1581238824,
+        "temp": 21.2,
+        "ts": 1581166860,
+        "uv": 1.34279,
+        "valid_date": "2020-02-09",
+        "vis": 3.14621,
+        "weather": Object {
+          "code": 202,
+          "description": "Thunderstorm with heavy rain",
+          "icon": "t03d",
+        },
+        "wind_cdir": "E",
+        "wind_cdir_full": "east",
+        "wind_dir": 83,
+        "wind_gust_spd": 21.0305,
+        "wind_spd": 12.608,
+      }
+    }
     index={0}
   />
 </ContextProvider>
@@ -71,6 +116,51 @@ exports[`<ForecastDaily /> should render with Farenheight 1`] = `
   }
 >
   <ForecastDaily
+    dailyForecast={
+      Object {
+        "app_max_temp": 22.7,
+        "app_min_temp": 20.7,
+        "clouds": 100,
+        "clouds_hi": 100,
+        "clouds_low": 99,
+        "clouds_mid": 100,
+        "datetime": "2020-02-09",
+        "dewpt": 20.1,
+        "high_temp": 22.7,
+        "low_temp": 21.1,
+        "max_dhi": null,
+        "max_temp": 22.2,
+        "min_temp": 20.1,
+        "moon_phase": 0.994843,
+        "moonrise_ts": 1581239723,
+        "moonset_ts": 1581192062,
+        "ozone": 265.339,
+        "pop": 95,
+        "precip": 112.562,
+        "pres": 1001.25,
+        "rh": 93,
+        "slp": 1008.84,
+        "snow": 0,
+        "snow_depth": 0,
+        "sunrise_ts": 1581189984,
+        "sunset_ts": 1581238824,
+        "temp": 21.2,
+        "ts": 1581166860,
+        "uv": 1.34279,
+        "valid_date": "2020-02-09",
+        "vis": 3.14621,
+        "weather": Object {
+          "code": 202,
+          "description": "Thunderstorm with heavy rain",
+          "icon": "t03d",
+        },
+        "wind_cdir": "E",
+        "wind_cdir_full": "east",
+        "wind_dir": 83,
+        "wind_gust_spd": 21.0305,
+        "wind_spd": 12.608,
+      }
+    }
     index={0}
   />
 </ContextProvider>

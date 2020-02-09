@@ -12,7 +12,7 @@ const Header = () => {
     <View style={styles.headerContainer}>
       <TouchableOpacity
         style={styles.settingIcon}
-        onPress={() => navigation.toggleDrawer()}
+        onPress={() => navigation.openDrawer()}
       >
         <FontAwesomeIcon icon={faBars} size={18} />
       </TouchableOpacity>

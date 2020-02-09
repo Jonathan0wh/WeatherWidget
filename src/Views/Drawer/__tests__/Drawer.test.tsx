@@ -9,5 +9,19 @@ import Drawer from '../Drawer';
 const mockStore = configureMockStore([thunk]);
 
 describe('<Drawer />', () => {
-  it('should render by default', () => {});
+  it('should render by default', () => {
+    const store = mockStore({
+      location: null,
+      current: null,
+      unit: {
+        celsius: true
+      }
+    });
+    const wrapper = shallow(
+      <Provider store={store}>
+        <Drawer />
+      </Provider>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
