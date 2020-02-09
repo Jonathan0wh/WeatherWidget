@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, TextInput, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import Config from 'react-native-config';
 import axios from 'axios';
@@ -25,7 +25,13 @@ const SearchBox = () => {
           .then(response => {
             dispatch(saveCurrent(response.data.data[0]));
           })
-          .catch(error => __DEV__ && console.log(error));
+          .catch(error => {
+            Alert.alert(
+              STRINGS.LocationInputErrorTitle,
+              STRINGS.LocationInputErrorMessage
+            );
+            __DEV__ && console.log(error);
+          });
       }}
     />
   );

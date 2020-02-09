@@ -14,7 +14,7 @@ const Forecast = () => {
   let forecast: ForecastState = [];
 
   const current = useSelector((state: RootState) => state.current);
-  const [{ data, isLoading, isError }] = useApi(
+  const { data, isLoading, isError } = useApi(
     undefined,
     STRINGS.apiEndpointForecast,
     {

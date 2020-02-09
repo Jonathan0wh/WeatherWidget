@@ -10,7 +10,7 @@ const mockStore = configureMockStore([thunk]);
 
 describe('<CurrentWeather />', () => {
   it('should render by default', () => {
-    /* const store = mockStore({
+    const store = mockStore({
       location: null,
       current: null,
       unit: {
@@ -22,6 +22,6 @@ describe('<CurrentWeather />', () => {
         <CurrentWeather />
       </Provider>
     );
-    expect(wrapper).toMatchSnapshot(); */
+    expect(wrapper).toMatchSnapshot();
   });
 });

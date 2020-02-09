@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
+import Config from 'react-native-config';
 
 import CurrentWeatherMain from 'Components/CurrentWeatherMain';
 import CurrentWeatherAdditional from 'Components/CurrentWeatherAdditional';
@@ -11,8 +12,8 @@ import { saveCurrent } from 'Views/CurrentWeather/actions';
 
 const CurrentWeather = () => {
   const locationParam = useLocation();
-  const [{ data, isLoading, isError }] = useApi(
-    undefined,
+  const { data, isLoading, isError } = useApi(
+    Config.API_URL,
     STRINGS.apiEndpointCurrent,
     locationParam,
     !!locationParam

@@ -1,71 +1,24 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import Config from 'react-native-config';
 
-type ApiPayload = object | [];
+import { FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE } from './types';
+import { dataFetchReducer } from './reducers';
 
-interface IState {
-  isLoading: boolean;
-  isError: boolean;
-  data?: ApiPayload;
-}
-
-const FETCH_INIT = 'FETCH/INIT';
-const FETCH_SUCCESS = 'FETCH/SUCCESS';
-const FETCH_FAILURE = 'FETCH/FAILURE';
-
-interface FetchInitAction {
-  type: typeof FETCH_INIT;
-}
-
-interface FetchSuccessAction {
-  type: typeof FETCH_SUCCESS;
-  payload: ApiPayload;
-}
-
-interface FetchFailureAction {
-  type: typeof FETCH_FAILURE;
-}
-
-type FetchActionTypes =
-  | FetchInitAction
-  | FetchSuccessAction
-  | FetchFailureAction;
-
-const dataFetchReducer = (state: IState, action: FetchActionTypes) => {
-  switch (action.type) {
-    case FETCH_INIT:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false
-      };
-    case FETCH_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        data: action.payload
-      };
-    case FETCH_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true
-      };
-
-    default:
-      throw new Error();
-  }
-};
-
+/**
+ * Custom hook for sending API request and get fetching states and response data
+ * This hook runs fetch immediately when you useApi if runFetch is true
+ * @param baseUrl The base url of the API. default to API_URL in .env file
+ * @param endpoint endpoint relative path to the base url. For example, /forecast
+ * @param params Object for url parameters. For example, {lat: 0, lon: 0} will be transformed into &lan=0&lon=0
+ * @param runFetch Flag for when to run fetch. Could pass a variable to conditionally run the fetch
+ */
 export const useApi = (
   baseUrl: string = Config.API_URL,
   endpoint?: string,
   params?: object,
   runFetch: boolean = true
 ) => {
-  const [base, setUrl] = useState(baseUrl);
   const [state, dispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
     isError: false
@@ -77,22 +30,28 @@ export const useApi = (
       paramString += key + '=' + value + '&';
     }
   } else paramString = '';
-  const url = `${base}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
+  const url = `${baseUrl}/${endpoint}?key=${Config.ACCESS_KEY}&${paramString}`;
 
   useEffect(() => {
+    let didCancel = false;
+
     const fetchData = async () => {
       dispatch({ type: FETCH_INIT });
       try {
         const result = await axios(url);
-        dispatch({ type: FETCH_SUCCESS, payload: result.data });
+        if (!didCancel) dispatch({ type: FETCH_SUCCESS, payload: result.data });
       } catch (error) {
         __DEV__ && console.log(error);
-        dispatch({ type: FETCH_FAILURE });
+        if (!didCancel) dispatch({ type: FETCH_FAILURE });
       }
     };
 
     runFetch && fetchData();
+
+    return () => {
+      didCancel = true;
+    };
   }, [url, runFetch]);
 
-  return [state, setUrl];
+  return state;
 };
