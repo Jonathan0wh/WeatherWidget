@@ -1,4 +1,4 @@
-# Simple Weather App (React Native) for PwC technical test
+# Weather App (React Native) for PwC technical test
 
 ## Screenshots
 
