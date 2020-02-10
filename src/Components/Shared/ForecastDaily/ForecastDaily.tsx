@@ -71,13 +71,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   dateText: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: COLORS.white,
+    textShadowColor: COLORS.black,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   infoText: {
-    color: COLORS.infoTextGrey
+    color: COLORS.black,
+    textShadowColor: COLORS.white,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   highTemperatureText: {
-    color: COLORS.titleTextGrey
+    color: COLORS.white,
+    textShadowColor: COLORS.black,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   weatherIcon: {
     width: 60,

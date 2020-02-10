@@ -4,7 +4,7 @@
 
 | Default                                                             | Drawer navigation with location input and Celsius/Farenheit switcher | Farenheit mode                                                      |
 | ------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Screenshot 1](<./docs/Screen Shot 2020-02-10 at 11.25.43 am.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-10 at 11.26.22 am.png>)  | ![Screenshot 3](<./docs/Screen Shot 2020-02-10 at 11.26.55 am.png>) |
+| ![Screenshot 1](<./docs/Screen Shot 2020-02-10 at 12.49.53 pm.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-10 at 12.50.18 pm.png>)  | ![Screenshot 3](<./docs/Screen Shot 2020-02-10 at 12.50.57 pm.png>) |
 
 ## Commands
 
@@ -100,18 +100,6 @@ Folder Tree:
 │   │           ├── reducer.ts
 │   │           └── types.ts
 │   ├── Views
-│   │   ├── CurrentWeather
-│   │   │   ├── CurrentWeather.tsx
-│   │   │   ├── __tests__
-│   │   │   │   ├── CurrentWeather.test.tsx
-│   │   │   │   ├── __snapshots__
-│   │   │   │   │   └── CurrentWeather.test.tsx.snap
-│   │   │   │   ├── actions.test.ts
-│   │   │   │   └── reducer.test.ts
-│   │   │   ├── actions.ts
-│   │   │   ├── index.ts
-│   │   │   ├── reducer.ts
-│   │   │   └── types.ts
 │   │   ├── Drawer
 │   │   │   ├── Drawer.tsx
 │   │   │   ├── __tests__
@@ -135,9 +123,16 @@ Folder Tree:
 │   │       ├── Weather.tsx
 │   │       ├── __tests__
 │   │       │   ├── Weather.test.tsx
+│   │       │   ├── actions.test.ts
+│   │       │   └── reducer.test.ts
 │   │       │   └── __snapshots__
-│   │       │       └── Weather.test.tsx.snap
-│   │       └── index.ts
+│   │       │   │   └── Weather.test.tsx.snap
+|   |       |   └── __mocks__
+|   |       |       └── response.json
+│   │       ├── actions.ts
+│   │       ├── index.ts
+│   │       ├── reducer.ts
+│   │       └── types.ts
 │   ├── constants
 │   │   ├── a11y.ts
 │   │   ├── fontawesome.d.ts
@@ -173,6 +168,7 @@ Folder Tree:
 - [x] Pulls the location weather from an API [Weatherbit](https://www.weatherbit.io/) for a list of public weather APIs that you could use)
 - [x] Allows the user to switch between Imperial/Metric units
 - [x] Allows the user to enter in a location name to look up
+- [x] Add dynamic changing weather background
 
 ## Functionality Choices
 

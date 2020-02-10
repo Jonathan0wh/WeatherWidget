@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { unitReducer } from 'Components/Shared/UnitSwitcher';
-import { currentReducer } from 'Views/CurrentWeather';
+import { currentReducer } from 'Views/Weather';
 import { forecastReducer } from 'Views/Forecast';
 
 export const rootReducer = combineReducers({

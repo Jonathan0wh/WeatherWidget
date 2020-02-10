@@ -36,6 +36,7 @@ export const useApi = (
     let didCancel = false;
 
     const fetchData = async () => {
+      console.log(url); // FIXME: delete debugging
       dispatch({ type: FETCH_INIT });
       try {
         const result = await axios(url);

@@ -78,10 +78,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   titleText: {
-    color: COLORS.infoTextGrey
+    color: COLORS.black,
+    textShadowColor: COLORS.white,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   dataText: {
-    color: COLORS.titleTextGrey
+    color: COLORS.white,
+    textShadowColor: COLORS.black,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   }
 });
 

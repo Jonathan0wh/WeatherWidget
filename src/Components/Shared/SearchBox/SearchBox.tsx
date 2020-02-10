@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { COLORS } from 'styles/colors';
 import { STRINGS } from 'constants/strings';
-import { saveCurrent } from 'Views/CurrentWeather';
+import { saveCurrent } from 'Views/Weather';
 
 const SearchBox = () => {
   const [value, setValue] = useState('');

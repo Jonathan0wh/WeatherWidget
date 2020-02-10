@@ -32,6 +32,6 @@ exports[`<Weather /> should render by default 1`] = `
     }
   }
 >
-  <Weather />
+  <Container />
 </ContextProvider>
 `;

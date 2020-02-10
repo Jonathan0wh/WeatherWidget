@@ -3,7 +3,7 @@ export const STRINGS = {
   apiEndpointCurrent: 'current',
   apiEndpointForecast: 'forecast/daily',
 
-  // Date/Time constants
+  // common scene constants
   days: [
     'Sunday',
     'Monday',

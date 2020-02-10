@@ -79,11 +79,17 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 36,
-    color: COLORS.titleTextGrey
+    color: COLORS.white,
+    textShadowColor: COLORS.black,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   infoText: {
     fontSize: 16,
-    color: COLORS.infoTextGrey
+    color: COLORS.black,
+    textShadowColor: COLORS.white,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   },
   visualWeatherContainer: {
     flex: 1,
@@ -97,7 +103,11 @@ const styles = StyleSheet.create({
     paddingTop: 16
   },
   temperatureUnit: {
-    paddingTop: 22
+    paddingTop: 22,
+    color: COLORS.white,
+    textShadowColor: COLORS.black,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   }
 });
 
