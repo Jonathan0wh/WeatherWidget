@@ -24,10 +24,10 @@ const CurrentWeatherAdditional = () => {
           <Text
             style={styles.dataText}
             accessible
-            accessibilityLabel={current.precip + 'mm/hr'}
+            accessibilityLabel={current.precip.toFixed(0) + 'mm/hr'}
             accessibilityRole="text"
           >
-            {current.precip} mm/hr
+            {current.precip.toFixed(0)} mm/hr
           </Text>
         </View>
         <View style={styles.rowContainer}>
@@ -42,10 +42,10 @@ const CurrentWeatherAdditional = () => {
           <Text
             style={styles.dataText}
             accessible
-            accessibilityLabel={current.rh + '%'}
+            accessibilityLabel={current.rh.toFixed(0) + '%'}
             accessibilityRole="text"
           >
-            {current.rh}%
+            {current.rh.toFixed(0)}%
           </Text>
         </View>
         <View style={styles.rowContainer}>
@@ -60,10 +60,12 @@ const CurrentWeatherAdditional = () => {
           <Text
             style={styles.dataText}
             accessible
-            accessibilityLabel={current.wind_spd + 'm/s' + current.wind_cdir}
+            accessibilityLabel={
+              current.wind_spd.toFixed(0) + 'm/s' + current.wind_cdir
+            }
             accessibilityRole="text"
           >
-            {current.wind_spd} m/s {current.wind_cdir}
+            {current.wind_spd.toFixed(0)} m/s {current.wind_cdir}
           </Text>
         </View>
       </View>

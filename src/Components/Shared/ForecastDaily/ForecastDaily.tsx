@@ -46,14 +46,14 @@ const ForecastDaily = ({ index, dailyForecast }: ForecastDailyProps) => {
       <View style={styles.rowContainer}>
         <Text style={styles.highTemperatureText}>
           {celsius
-            ? dailyForecast.max_temp
+            ? dailyForecast.max_temp.toFixed(0)
             : getFahrenheitFromCelsius(dailyForecast.max_temp)}
           °
         </Text>
         <Text style={styles.infoText}>
           {' '}
           {celsius
-            ? dailyForecast.min_temp
+            ? dailyForecast.min_temp.toFixed(0)
             : getFahrenheitFromCelsius(dailyForecast.min_temp)}
           °
         </Text>

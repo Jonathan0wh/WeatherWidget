@@ -2,9 +2,9 @@
 
 ## Screenshots
 
-| Default                                                            | Drawer navigation with location input and Celsius/Farenheit switcher | Farenheit mode                                                     |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| ![Screenshot 1](<./docs/Screen Shot 2020-02-09 at 4.33.00 am.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-07 at 2.19.56 pm.png>)   | ![Screenshot 3](<./docs/Screen Shot 2020-02-09 at 4.33.24 am.png>) |
+| Default                                                             | Drawer navigation with location input and Celsius/Farenheit switcher | Farenheit mode                                                      |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| ![Screenshot 1](<./docs/Screen Shot 2020-02-10 at 11.25.43 am.png>) | ![Screenshot 2](<./docs/Screen Shot 2020-02-10 at 11.26.22 am.png>)  | ![Screenshot 3](<./docs/Screen Shot 2020-02-10 at 11.26.55 am.png>) |
 
 ## Commands
 

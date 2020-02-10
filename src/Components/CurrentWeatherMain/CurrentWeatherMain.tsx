@@ -55,12 +55,14 @@ const CurrentWeatherMain = () => {
             accessible
             accessibilityLabel={
               A11Y_LABELS.currentTemperature + celsius
-                ? current.temp + 'Celsius'
+                ? current.temp.toFixed(0) + 'Celsius'
                 : getFahrenheitFromCelsius(current.temp) + 'Farenheight'
             }
             accessibilityRole="text"
           >
-            {celsius ? current.temp : getFahrenheitFromCelsius(current.temp)}
+            {celsius
+              ? current.temp.toFixed(0)
+              : getFahrenheitFromCelsius(current.temp)}
           </Text>
           <Text style={[styles.infoText, styles.temperatureUnit]}>
             °{celsius ? 'C' : 'F'}
